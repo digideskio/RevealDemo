@@ -7,7 +7,7 @@ Docker: file:///home/dani/RevealDemo/docker.html?transition=concave
 
 Phansible demo:
 - Disable nfs and windows
-- chmod +x chmod -x ansible/inventories/dev
+- chmod -x ansible/inventories/dev
 - git clone https://github.com/daleharvey/pacman.git
 
 Docker demo:
