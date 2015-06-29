@@ -13,3 +13,4 @@ Phansible demo:
 Docker demo:
 - https://docs.docker.com/installation/
 - https://github.com/harbur/docker-workshop
+- Botchagalupe: https://gist.github.com/botchagalupe/53695f50eebbd3eaa9aa
