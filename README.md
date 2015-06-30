@@ -14,3 +14,6 @@ Docker demo:
 - https://docs.docker.com/installation/
 - https://github.com/harbur/docker-workshop
 - Botchagalupe: https://gist.github.com/botchagalupe/53695f50eebbd3eaa9aa
+- Demo wordpress:
+	- https://github.com/tutumcloud/wordpress
+	- https://registry.hub.docker.com/u/tutum/wordpress
