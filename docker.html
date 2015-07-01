@@ -61,58 +61,48 @@
 
 				<!-- Example of nested vertical slides -->
 				<section>
+				<section>
 					<section>
-						<h2>¿Qué es Phansible?</h2>
-						<p>Configurador web para crear entornos virtuales de desarrollo</p>
-						<p>Creado para entornos de desarrollo PHP</p>
+						<h2>¿Qué es Docker?</h2>
+						<p>Plataforma de código abierto para crear, empaquetar y distribuir aplicaciones</p>
+						<p>Creación de máquinas virtuales muy ligeras (Containers)</p>
 						<br>
-						<img width="350" height="350" data-src="images/php.jpg" alt="Trompas largas" />
+						<img width="350" height="350" data-src="images/docker.jpg" />
 					</section>
 				</section>
 
-                            <section>
-                                        <section id="fragments">
-                                                <h2>Objetivo</h2>
-                                                <p>Yo programo con WAMP</p>
-                                                <p class="fragment">... y yo uso MAMP</p>
-                                                <p class="fragment">... pues yo tengo una máquina virtual</p>
-                                                <p class="fragment">... hasta el infinito y más allá con mi VIM en producción</p>
 
+                                        <section>
+                                                <h2>VM's vs. Containers</h2>
+                                                <p>La guerra de la virtualización</p>
+                                                <img width="600" height="400" data-src="images/docker-vm-container.png" />
                                         </section>
                                         <section>
-                                                <h2>¿Problema?</h2>
-                                                <p>Entornos de desarrollo totalmente diferentes</p>
-                                                <p>Muy difícil de mantener</p>
-                                                <p>Sistema excesivamente tradicional</p>
-						<br>
-						<img width="350" height="300" data-src="images/wamp.gif" />
+                                                <h2>¿Cómo funciona?</h2>
+                                                <p>Un container ejecuta una acción y desaparece al terminar ésta</p>
+                                                <p>Se controlan los recursos del host a través de "CGroups"</p>
+                                                <p>Lanzamos imágenes ya creadas o podemos crear nuestras propias imágenes</p>
                                         </section>
-					<section>
-						<h2>¿Qué podemos hacer?</h2>
-						<p>Simple... vamos a trabajar todos igual</p>
-					</section>
-                                </section>
 
+				</section>
 				<section>
 					<section>
-						<h2>Requisitos</h2>
+						<h2>Instalación</h2>
 					<p>
-						Los requisitos para que funcione Phansible son:
-					</p>
-					<p>
-							Virtualbox<br>
-							Ansible<br>
-							Vagrant
+						Se puede instalar en GNU / Linux, Mac OS X y Windows (*)
 					</p>
 					</section>
 					<section>
-						<h2> :: Mac OS X y GNU/Linux :: </h2>
-						<img data-src="images/chuck.gif" />
+						<h2> ::  GNU/Linux :: </h2>
+						<p>A través del gestor de paquetes de la distribución</p>
+						<p>o a través del siguiente script:</p>
+						<pre><code> wget -qO- https://get.docker.com/ | sh </code></pre>
+						<p> * Ejemplo: Centos </p>
 					</section>
 					<section>
-						<h2> :: Windows :: </h2>
-						<img data-src="images/nelson.jpg" />
-						<p>Currently Ansible can be run from any machine with Python 2.6 or 2.7 installed (Windows isn’t supported for the control machine) *Workaround*</p>
+						<h2> :: Mac OS X || Windows :: </h2>
+						<img data-src="images/boot2docker.png" />
+						<p>Se instala una máquina virtual con docker en ella, al estilo phansible que os presenté en el anterior meetup.</p>
 					</section>
 				</section>
 
