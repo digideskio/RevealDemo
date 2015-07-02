@@ -105,63 +105,74 @@
 						<p>Se instala una máquina virtual con docker en ella, al estilo phansible que os presenté en el anterior meetup.</p>
 					</section>
 				</section>
+				<section>
+				<section>
+					<h2>:: Docker run ::</h2>
+					<p>Vamos a comprobar que nuestro entorno está listo</p>
+					<pre><code>$ docker version</code></pre>
+					<pre><code>$ docker run hello-world</code></pre>
+				</section>
+				<section>
+					<h2>Docker run - Basics</h2>
+					<pre><code>$ docker ps</pre></code>
+					<pre><code>$ docker ps -a</pre></code>
+					<pre><code>$ docker run -it busybox</pre></code>
+					<pre><code>$ docker search nginx</pre></code>
+				</section>
+			</section>
 
 				<section>
-					<img data-src="images/virtualbox.png" />
-					<p>Aplicación para la gestión de máquinas virtuales</p>
-					<p>En nuestro caso será el "provider" por defecto</p>
+					<h2> Docker volumes </h2>
+					<p>Docker nos permite pasar ficheros a nuestros contenedores</p>
+					<p>o nos permite mapear un directorio de nuestro disco local al contenedor</p>
+					<pre><code>$ docker run -it -v ~/webapps:/webapps:ro myimage</code></pre>
 				</section>
 
 				<section>
-					<img data-src="images/vagrant.png" />
-					<h2> Vagrant </h2>
-					<p>Software para la creación y configuración de entornos virtuales de desarrollo</p>
-					<p>Puede comunicarse con varios "providers" y diferentes CM (Configuration Management)</p>
+				<section>
+					<h2> Dockerfiles </h2>
+					<p>Ficheros de configuración parar crear nuestras imágenes</p>
+					<p>Es una receta paso a paso con las acciones a realizar en la creación de una imagen que posteriormente ejecutaremos</p>
 				</section>
+				<section>
+					<h2> Dockerfiles - Ejemplo </h2>
+					<pre><code>FROM ubuntu:14.04
+
+RUN apt-get -y install apache2
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]</code></pre>
+				</section>
+				<section>
+					<h2> Dockerfiles - Libreria </h2>
+					<p> Podemos utilizar dockerfiles ya creados </p>
+					<p> https://github.com/docker-library </p>
+					<p> https://registry.hub.docker.com/ </p>
+				</section>
+			</section>
 
 				<section>
-					<img width="350" height="300" data-src="images/ansible.png" />
-					<p>Configuration Management para automatizar la configuración de máquinas virtuales</p>
-					<p>Para que funcione en Windows hay que tirar de cygwin</p>
-				</section>
-
-
-				<section>
-					<h2>¿Y ahora?</h1>
-					<p>Tan sencillo como configurar y levantar</p>
-					<pre><code>Visita -> http://phansible.com/
-
-$ vagrant up
-
-$ vagrant ssh
-
-Visita -> http://ip_vm_configurada/</code></pre>
-					<p>¿Todavía no?</p>
-				</section>
-
-				<section>
-					<h2>Demo aka. "al turrón"</h1>
+					<h2>Vaya tostón, ¿una demo?</h1>
 					<img data-src="images/turron.gif" />
 				</section>
 
 				<section>
-					<h2>¿Dudas?</h2>
+					<h2>UI Management</h2>
+					<p>Existe un contenedor que se conecta con docker host para gestionarlo</p>
+					<pre><code>$ docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock
+						 dockerui/dockerui</code></pre>
 				</section>
 
 				<section>
-					<h2>Existen alternativas</h2>
-					<p>Puphpet -> Similar pero utiliza puppet como CM</p>
-					<p>https://puphpet.com/</p>
+					<h2>Kitematic</h2>
+					<p>También existe GUI para la gestión desde Mac</p>
+					<img width="600" height="350" data-src="images/kitematic.jpg" />
 				</section>
 
 				<section>
 					<h2>Mucho más</h2>
 					<ul>
-						<li>Abandona Windows</li>
-						<li><a href="http://phansible.com/docs/usage">Phansible Usage</a></li>
-						<li><a href="https://www.youtube.com/watch?v=hXMf2jGYj1o">Phansible - Youtube demo</a></li>
-						<li><a href="http://docs.vagrantup.com/v2/getting-started/index.html">Vagrant - Getting started</a></li>
-						<li><a href="http://docs.ansible.com/intro_getting_started.html">Ansible - Getting started</a></li>
+						<li><a href="https://docs.docker.com/installation/">Docker Installation</a></li>
+						<li><a href="https://github.com/harbur/docker-workshop">Docker workshop</a></li>
 					</ul>
 				</section>
 
