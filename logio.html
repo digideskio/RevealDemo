@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script> -->
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img width="500" height="350" data-src="images/logio.png" /> <h1> Log.io </h1>
+					<h3>Real-time log monitoring in your browser</h3>
+
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+						<p>Meetup a lo salvaje</p>
+						<p>En memoria de Gacela Thompson</p>
+						<img width="600" height="250" data-src="images/gacela.gif" />
+				</section>
+
+				<!-- Example of nested vertical slides -->
+					<section>
+						<h2>¿Qué es Log.io?</h2>
+						<p>Logs en tiempo real en tu propio navegador</p>
+						<p>Sin tener que acceder a los servidores</p>
+						<br>
+						<img width="600" height="350" data-src="images/yeah.gif" />
+					</section>
+
+					<section>
+						<h2>Problemas</h2>
+					<p>
+						Actualmente probamos el código en los entornos pero cuando llegamos a producción no siempre sale bien
+					</p>
+					<img width="350" height="350" data-src="images/launch.gif" />
+					</section>
+					<section>
+						<h2> Buscando el problema </h2>
+						<p>Nos tenemos que conectar a mil nodos para encontrar el error</p>
+						<p>Varios tipos de logs: Apache, Aplicación, Sistema...</p>
+						<p>De repente un error salvaje apareció</p>
+					<img width="350" height="350" data-src="images/jump.gif" />
+					</section>
+					<section>
+						<h2> Instalemos Log.io </h2>
+						
+						<p>Se instala una máquina virtual con docker en ella, al estilo phansible que os presenté en el anterior meetup.</p>
+					</section>
+
+				<section>
+				<section>
+					<h2>:: Docker run ::</h2>
+					<p>Vamos a comprobar que nuestro entorno está listo</p>
+					<pre><code>$ docker version</code></pre>
+					<pre><code>$ docker run hello-world</code></pre>
+				</section>
+				<section>
+					<h2>Docker run - Basics</h2>
+					<pre><code>$ docker ps</pre></code>
+					<pre><code>$ docker ps -a</pre></code>
+					<pre><code>$ docker run -it busybox</pre></code>
+					<pre><code>$ docker search nginx</pre></code>
+				</section>
+			</section>
+
+				<section>
+					<h2> Docker volumes </h2>
+					<p>Docker nos permite pasar ficheros a nuestros contenedores</p>
+					<p>o nos permite mapear un directorio de nuestro disco local al contenedor</p>
+					<pre><code>$ docker run -it -v ~/webapps:/webapps:ro myimage</code></pre>
+				</section>
+
+				<section>
+				<section>
+					<h2> Dockerfiles </h2>
+					<p>Ficheros de configuración parar crear nuestras imágenes</p>
+					<p>Es una receta paso a paso con las acciones a realizar en la creación de una imagen que posteriormente ejecutaremos</p>
+				</section>
+				<section>
+					<h2> Dockerfiles - Ejemplo </h2>
+					<pre><code>FROM ubuntu:14.04
+
+RUN apt-get -y install apache2
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]</code></pre>
+				</section>
+				<section>
+					<h2> Dockerfiles - Libreria </h2>
+					<p> Podemos utilizar dockerfiles ya creados </p>
+					<p> https://github.com/docker-library </p>
+					<p> https://registry.hub.docker.com/ </p>
+				</section>
+			</section>
+
+				<section>
+					<h2>Vaya tostón, ¿una demo?</h1>
+					<img data-src="images/turron.gif" />
+				</section>
+
+				<section>
+					<h2>UI Management</h2>
+					<p>Existe un contenedor que se conecta con docker host para gestionarlo</p>
+					<pre><code>$ docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock
+						 dockerui/dockerui</code></pre>
+				</section>
+
+				<section>
+					<h2>Kitematic</h2>
+					<p>También existe GUI para la gestión desde Mac</p>
+					<img width="600" height="350" data-src="images/kitematic.jpg" />
+				</section>
+
+				<section>
+					<h2>Mucho más</h2>
+					<ul>
+						<li><a href="https://docs.docker.com/installation/">Docker Installation</a></li>
+						<li><a href="https://github.com/harbur/docker-workshop">Docker workshop</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Cualquier duda ya sabéis dónde encontrarme =)</h2>
+					<img data-src="images/moss.gif" />
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
