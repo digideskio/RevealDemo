@@ -77,85 +77,37 @@
 					<img width="350" height="350" data-src="images/jump.gif" />
 					</section>
 					<section>
-						<h2> Instalemos Log.io </h2>
-						
-						<p>Se instala una máquina virtual con docker en ella, al estilo phansible que os presenté en el anterior meetup.</p>
+						<h2> Componentes </h2>
+
+						<p>Powered by node.js y socket.io</p>
+						<p> Web Server - Servidor web donde vemos los logs <p/>
+						<p> Log.io Server - Servidor que recolecta los logs para presentarlos en el web server </p>
+						<p> Harvester - Agente que se comunica con el Log.io Server para proporcionarle los logs </p>
+						<p> El rol de Harvester puede estar en local o en servidor remotos así que podemos ver logs de otros servers </p>
 					</section>
 
 				<section>
-				<section>
-					<h2>:: Docker run ::</h2>
-					<p>Vamos a comprobar que nuestro entorno está listo</p>
-					<pre><code>$ docker version</code></pre>
-					<pre><code>$ docker run hello-world</code></pre>
+					<h2>¿Cómo funciona?</h2>
+					<img data-src="images/howitworks.png" />
 				</section>
 				<section>
-					<h2>Docker run - Basics</h2>
-					<pre><code>$ docker ps</pre></code>
-					<pre><code>$ docker ps -a</pre></code>
-					<pre><code>$ docker run -it busybox</pre></code>
-					<pre><code>$ docker search nginx</pre></code>
-				</section>
-			</section>
-
-				<section>
-					<h2> Docker volumes </h2>
-					<p>Docker nos permite pasar ficheros a nuestros contenedores</p>
-					<p>o nos permite mapear un directorio de nuestro disco local al contenedor</p>
-					<pre><code>$ docker run -it -v ~/webapps:/webapps:ro myimage</code></pre>
+					<h2>Instalando</h2>
+				<img data-src="images/logioinstall.png" />
 				</section>
 
 				<section>
-				<section>
-					<h2> Dockerfiles </h2>
-					<p>Ficheros de configuración parar crear nuestras imágenes</p>
-					<p>Es una receta paso a paso con las acciones a realizar en la creación de una imagen que posteriormente ejecutaremos</p>
-				</section>
-				<section>
-					<h2> Dockerfiles - Ejemplo </h2>
-					<pre><code>FROM ubuntu:14.04
-
-RUN apt-get -y install apache2
-
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]</code></pre>
-				</section>
-				<section>
-					<h2> Dockerfiles - Libreria </h2>
-					<p> Podemos utilizar dockerfiles ya creados </p>
-					<p> https://github.com/docker-library </p>
-					<p> https://registry.hub.docker.com/ </p>
-				</section>
-			</section>
-
-				<section>
-					<h2>Vaya tostón, ¿una demo?</h1>
+					<h2>Como siempre, ¿una demo?</h1>
 					<img data-src="images/turron.gif" />
 				</section>
 
 				<section>
-					<h2>UI Management</h2>
-					<p>Existe un contenedor que se conecta con docker host para gestionarlo</p>
-					<pre><code>$ docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock
-						 dockerui/dockerui</code></pre>
-				</section>
-
-				<section>
-					<h2>Kitematic</h2>
-					<p>También existe GUI para la gestión desde Mac</p>
-					<img width="600" height="350" data-src="images/kitematic.jpg" />
-				</section>
-
-				<section>
 					<h2>Mucho más</h2>
-					<ul>
-						<li><a href="https://docs.docker.com/installation/">Docker Installation</a></li>
-						<li><a href="https://github.com/harbur/docker-workshop">Docker workshop</a></li>
-					</ul>
+						<a href="http://logio.org/">Log.io web oficial</a>
 				</section>
 
 				<section>
-					<h2>Cualquier duda ya sabéis dónde encontrarme =)</h2>
-					<img data-src="images/moss.gif" />
+					<h2>Cualquier duda ya sabéis dónde encontrarme hasta el 19 y a partir del 20 también</h2>
+					<img data-src="images/arbusto.gif" />
 				</section>
 
 			</div>
